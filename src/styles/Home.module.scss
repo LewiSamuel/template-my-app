@@ -1,6 +1,6 @@
 .container{
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - 6.6rem);
 
   display: flex;
   flex-direction: column;
@@ -9,16 +9,30 @@
   justify-content: center;
   align-items: center;
 
+  padding: 1rem 2rem;
+
   background-image: url(https://source.unsplash.com/collection/145698/1200x800);
   background-size: cover;
 }
 
 
 .promisse{
-  height: 32px;
-  background-color: #ffba32;
+  font: 600 4rem sans-serif;
+  line-height: 4rem;
+  position: relative;
+  color: var(--white);
+  z-index: 1;
 
-  font-weight: bold;
-  font-size: 3em;
-  line-height: 0.4;
+  &::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    // max-width: 320px;
+    height: 32px;
+    background: var(--primary);
+    top: calc(100% - 1rem);
+    right: 0;
+    z-index: -1;
+  }
 }
+
