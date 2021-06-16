@@ -1,0 +1,65 @@
+.bgForm{
+    background-color: #f9f6ff;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.formControl{
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #d8d8d8;
+    max-width: 500px;
+    width: 100vw;
+}
+
+.inputField{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.imageControl{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.inputField label{
+    color: gray;
+}
+
+.inputControl{
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 15px 10px;
+}
+
+.inputControl::placeholder{
+    color: #bbbbbb;
+}
+
+.btnRegister{
+    border: 1.5px solid #ffba32;
+    padding: 10px 15px;
+    background: transparent;
+    color: #ffba32;
+    font-size: 1.5em;
+    transition: transform .2s;
+}
+
+.btnRegister:hover{
+    transform: scale(1.1);
+}
+
+.msgFeedback{
+    background: #ffffc8;
+    position: fixed;
+    padding: 15px 50px;
+    top: 10px;
+}

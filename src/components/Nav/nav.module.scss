@@ -1,17 +1,17 @@
 .container{
   display: flex;
   align-items: center;
-  padding: 1.6rem 2rem;
+  padding: 0.6rem 2rem;
 
   ul{
     margin-left: auto;
     display: flex;
 
     li{
-      border: 2px solid var(--primary);
+      // border: 2px solid var(--primary);
       
       &:first-child{
-        border-radius: 1rem 0 0 1rem;
+        // border-radius: 1rem 0 0 1rem;
         border-color: var(--primary);
         
         a{
@@ -35,7 +35,7 @@
       }
       
       a{
-        padding: 1rem 2rem;
+        padding: 0.5rem 0.8em;
         font: 600 1rem sans-serif;
         text-transform: uppercase;
         display: block;

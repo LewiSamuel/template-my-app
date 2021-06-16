@@ -60,9 +60,8 @@ export default function RegisterUser(){
         var NewUser = new User();
         // chama o metodo de cadastro de usuario
         // passando o objeto capturado do form
-        const result = await NewUser.register(objUser).then(result => { return result })
+        const result = await NewUser.save(objUser).then(result => { return result })
         setMsgFeedback(result)
-        console.log("teste", result);
     }
 
 

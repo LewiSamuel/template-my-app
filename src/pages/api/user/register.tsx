@@ -22,18 +22,13 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   fdUser.append("isAdmin",  isAdmin);
   fdUser.append("Linkedin", Linkedin);
 
-  const resultado = await axios.post('http://localhost:3333/teste', fdUser, {
+  const resultado = await axios.post('http://localhost:3333/user/save', fdUser, {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   })
-  .then((result) => {
-    return result.data
-  })
-  .catch((err) => {
-    return
-  });
-  console.log("teste3", resultado)
+  .then((result) => { return result.data })
+  .catch((err) => { return err; });
   
   res.status(200).send(resultado)
   return resultado;

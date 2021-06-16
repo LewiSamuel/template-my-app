@@ -10,10 +10,10 @@ export function Nav() {
 
       <ul>
         <li>
-          <a href="#">Login</a>
+          <a href="/login">Login</a>
         </li>
         <li>
-          <a href="#">Cadastro</a>
+          <a href="/register">Cadastro</a>
         </li>
       </ul>
     </nav>
