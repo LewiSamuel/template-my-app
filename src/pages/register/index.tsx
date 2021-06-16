@@ -3,31 +3,31 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-
 // import style of component
 import style from './register.module.scss';
 
+// import model and controller of User
+import User from '../../controller/User';
 import iUser from '../../models/User';
-import UserRegister from '../../controller/User/register';
-
 
 // function component 
-export default function Home(){
+export default function RegisterUser(){
 
 
     ///+* - * - * - * - * - * - *
     //
     //        SET STATE VARIABLES
     //
-    const [ Name, setName ]         = useState<any>();
-    const [ Email, setEmail ]       = useState<any>();
-    const [ Password, setPassword ] = useState<any>();
-    const [ Telefone, setTelefone ] = useState<any>();
-    const [ Obs, setObs ]           = useState<any>();
-    const [ DataNasc, setDataNasc ] = useState<any>();
-    const [ isAdmin, setisAdmin ]   = useState<any>();
-    const [ Linkedin, setLinkedin ] = useState<any>();
-
+    const [ Name, setName ]         = useState<iUser["Name"]>("");
+    const [ Email, setEmail ]       = useState<iUser["Email"]>("");
+    const [ Password, setPassword ] = useState<iUser["Password"]>("");
+    const [ Telefone, setTelefone ] = useState<iUser["Telefone"]>("");
+    const [ Obs, setObs ]           = useState<iUser["Obs"]>("");
+    const [ DataNasc, setDataNasc ] = useState<iUser["DataNasc"]>("");
+    const [ isAdmin, setisAdmin ]   = useState<iUser["isAdmin"]>("");
+    const [ Linkedin, setLinkedin ] = useState<iUser["Linkedin"]>("");
+    // utils
+    const [ msgFeedback, setMsgFeedback ] = useState<any>({message:null})
 
 
 
@@ -43,7 +43,7 @@ export default function Home(){
     //
     //       HANDLE SUBMIT FORM
     //
-    const handleSubmit = (e:any) => {
+    const handleSubmit = async(e:any) => {
         e.preventDefault();
         
         var objUser:iUser = {
@@ -56,9 +56,13 @@ export default function Home(){
             isAdmin: isAdmin,
             Linkedin: Linkedin
         }
-            
-        var userRegister = new UserRegister();
-        console.log(userRegister.register(objUser));
+        // cria uma instancia de usuario  
+        var NewUser = new User();
+        // chama o metodo de cadastro de usuario
+        // passando o objeto capturado do form
+        const result = await NewUser.register(objUser).then(result => { return result })
+        setMsgFeedback(result)
+        console.log("teste", result);
     }
 
 
@@ -85,6 +89,8 @@ return (
         BACKGROUND FORM
     */}
     <section className={style.bgForm}>
+
+        {msgFeedback.message && <section className={style.msgFeedback}>{msgFeedback.message}</section>}
 
         {/* - - - FORM BG WHITE - - - */}
         <form

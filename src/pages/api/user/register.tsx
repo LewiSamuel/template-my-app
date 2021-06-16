@@ -8,26 +8,33 @@ type Data = {
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-    
-        const formDataTEste = new FormData();
-        formDataTEste.append("Name", "Teste 123");
-        formDataTEste.append("Email", "arroba.lewi@gmail.com");
-        formDataTEste.append("Password", "123");
-        formDataTEste.append("Telefone", "123");
-        formDataTEste.append("Obs", "123");
-        formDataTEste.append("DataNasc", "1");
-        formDataTEste.append("isAdmin", "23");
-        formDataTEste.append("Linkedin", "123");
+  // get fields
+  const { Name,Email,Password,Telefone,Obs,DataNasc,isAdmin,Linkedin } = req.body;
 
-        const result = await axios.post('http://localhost:5000/teste', formDataTEste, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        })
-        .then((result) => {
-          console.log(result.data)
-        })
-        .catch((err) => {
-          console.log(err.response)
-        });
+  // create Form Data
+  const fdUser = new FormData();
+  fdUser.append("Name",     Name);
+  fdUser.append("Email",    Email);
+  fdUser.append("Password", Password);
+  fdUser.append("Telefone", Telefone);
+  fdUser.append("Obs",      Obs);
+  fdUser.append("DataNasc", DataNasc);
+  fdUser.append("isAdmin",  isAdmin);
+  fdUser.append("Linkedin", Linkedin);
+
+  const resultado = await axios.post('http://localhost:3333/teste', fdUser, {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+  .then((result) => {
+    return result.data
+  })
+  .catch((err) => {
+    return
+  });
+  console.log("teste3", resultado)
+  
+  res.status(200).send(resultado)
+  return resultado;
 }
