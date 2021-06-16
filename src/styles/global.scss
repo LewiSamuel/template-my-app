@@ -31,3 +31,23 @@ img{
   display: block;
   width: 100%;
 }
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFBA32;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: #ffd072;
+}
+
+::-webkit-scrollbar-track{
+  background: #ffffff;
+  border-radius: 0px;
+  box-shadow: inset 7px 10px 12px #f0f0f0;
+}

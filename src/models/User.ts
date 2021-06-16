@@ -1,5 +1,10 @@
-export interface User {
-    Nome: string,
+export default interface User {
+    Name: string,
     Email: string,
-    Type: Number
+    Password: string,
+    Telefone: string,
+    Obs: string,
+    DataNasc: string,
+    isAdmin: string,
+    Linkedin: string
 }
