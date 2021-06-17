@@ -7,8 +7,9 @@ import { useEffect, useState } from 'react';
 import style from './register.module.scss';
 
 // import model and controller of User
-import User from '../../controller/User';
+import UserControl from '../../controller/User';
 import iUser from '../../models/User';
+import Session from '../../lib/Session';
 
 // function component 
 export default function RegisterUser(){
@@ -39,22 +40,16 @@ export default function RegisterUser(){
     //
     const handleSubmit = async(e:any) => {
         e.preventDefault();
-        console.log("TESTE")
         var objUser:iUser = {
             Email: Email,
             Password: Password
         }
-        // cria uma instancia de usuario  
-        var NewUser = new User();
-        // chama o metodo de cadastro de usuario
+        // chama o metodo de auth de usuario
         // passando o objeto capturado do form
-        const result = await NewUser.auth(objUser).then(result => { return result })
-        console.log(result)
+        const result = await UserControl.auth(objUser).then(result => { return result });
+        Session.setAll(result.data)
         setMsgFeedback(result)
     }
-
-
-
 
 
 

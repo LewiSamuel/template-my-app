@@ -27,7 +27,6 @@ class User {
             const result = await axios.post(process.env.NEXT_PUBLIC_API_URL + "/user/save", fdUser)
             .then(result => {return result.data})
             .catch(err => {return err.response.data});
-            console.log(result)
             return result;
         }
 
@@ -44,8 +43,7 @@ class User {
             const result = await axios.post(process.env.NEXT_PUBLIC_API_URL + "/user/auth", fdUser)
             .then(result => {return result.data})
             .catch(err => {return err.response.data});
-            console.log(result)
             return result;
         }
 }
-export default User;
+export default new User();

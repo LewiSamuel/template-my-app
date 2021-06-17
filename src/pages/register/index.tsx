@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import style from './register.module.scss';
 
 // import model and controller of User
-import User from '../../controller/User';
+import UserControl from '../../controller/User';
 import iUser from '../../models/User';
 
 // function component 
@@ -56,11 +56,9 @@ export default function RegisterUser(){
             isAdmin: isAdmin,
             Linkedin: Linkedin
         }
-        // cria uma instancia de usuario  
-        var NewUser = new User();
         // chama o metodo de cadastro de usuario
         // passando o objeto capturado do form
-        const result = await NewUser.save(objUser).then(result => { return result })
+        const result = UserControl.save(objUser).then(result => { return result })
         setMsgFeedback(result)
     }
 
