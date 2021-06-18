@@ -1,0 +1,19 @@
+.tableStyle{
+    width: 100%;
+    font-size: 12px;
+}
+.tableStyle thead th{
+    border-bottom: 1px solid gray;
+    padding: 10px;
+}
+
+.tableStyle tbody td{
+    padding: 10px;
+}
+.container{
+    display: flex;
+}
+
+.tableStyle>tbody>tr:nth-of-type(odd) {
+    background-color: #e8e8e8;
+}

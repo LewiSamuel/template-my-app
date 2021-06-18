@@ -27,8 +27,7 @@ export default function RegisterUser(){
 
 
     useEffect(() => {
-        // let teste = 
-        // console.log("teste - ", teste.teste())
+        Session.redirectIfLogged("/admin");
     }, []);
 
 

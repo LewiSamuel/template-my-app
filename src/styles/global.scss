@@ -13,7 +13,9 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
-
+body{
+  background-color: #f9f6ff;
+}
 li{
   list-style: none;
 }
@@ -33,12 +35,12 @@ img{
 }
 
 ::-webkit-scrollbar {
-  width: 11px;
+  width: 5px;
   height: 11px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FFBA32;
+  background: #9c9c9c;
   border-radius: 0px;
 }
 

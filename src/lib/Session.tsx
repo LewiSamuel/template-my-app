@@ -7,7 +7,7 @@ class Session {
     }
 
     // METHOD GET ITEM
-    public async get(field: any){
+    public get(field: any){
         return sessionStorage.getItem(field);
     }
 
@@ -19,7 +19,6 @@ class Session {
     // METHOD GET ALL VALUES ON SESSION
     public async getAll(){
         const allFields = Object.keys(sessionStorage);
-        console.log(allFields)
         const obj:any = {};
         allFields.forEach((element:any) => {
             obj[element] = this.get(element)
@@ -40,6 +39,23 @@ class Session {
     // METHOD CLEAR ALL
     public async clear(){
         sessionStorage.clear()
+    }
+
+    public logged(){
+        if(sessionStorage.length > 0 && this.get("_id"))
+        return true;
+        else
+        return false;
+    }
+
+    public redirectIfLogged(url:string = "/"){
+        if(this.logged())
+        window.location.href = url
+    }
+
+    public redirectIfNotLogged(url:string = "/"){
+        if(!this.logged())
+        window.location.href = url
     }
 
 }
